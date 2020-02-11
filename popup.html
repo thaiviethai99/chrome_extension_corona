@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+            <meta content="width=device-width, initial-scale=1.0" name="viewport">
+                <meta content="ie=edge" http-equiv="X-UA-Compatible">
+                    <title>
+                        Corona
+                    </title>
+                    <link href="bulma.css" rel="stylesheet" type="text/css">
+                        <link href="layout.css" rel="stylesheet" type="text/css">
+                            <script src="jquery-3.1.0.min.js">
+                            </script>
+                            <script src="loadingoverlay.min.js">
+                            </script>
+                            <script src="popup.js">
+                            </script>
+                        </link>
+                    </link>
+                </meta>
+            </meta>
+        </meta>
+    </head>
+    <body>
+        <div class="container" style="width: 850px;
+    height:100%;margin: 10px">
+            <article class="panel is-primary">
+                <p class="panel-heading">
+                    Thống kê tình hình dịch virus Corona - nCoV
+                </p>
+                <div class="" style="margin: 10px;
+    padding: 10px;">
+    				<div class="select">
+    					<select id="source">
+    						<option value="1">vnexpress.net</option>
+    						<option value="0">gisanddata.maps.arcgis.com</option>
+    					</select>
+    				</div>
+    				
+                    <input class="button is-link" id="submitButton" type="submit" value="Cập nhật">
+                        <h1 style="margin-top: 10px;margin-bottom: 10px">
+                            <b>
+                                Kết quả
+                            </b>
+                        </h1>
+                        <div id="updateTimeWorld" style="display: none">Thời gian cập nhật : <span id="updateTime"></span></div>
+                        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth" id="tableResultWorld" style="display: none;">
+                            <thead>
+                                <tr class="">
+                                    <th class="bol-none">Quốc gia
+                                    </th>
+                                    <th class="text-center">
+                                        Số ca nhiễm
+                                    </th>
+                                    <th class="text-center">
+                                        Tử vong
+                                    </th>
+                                    <th class="text-center bor-none">
+                                        Bình phục
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="bol-none" style="width: 25%;">
+                                        Việt nam
+                                    </td>
+                                    <td class="text-center text-danger2">
+                                        <h3 id="VN-01">
+                                        </h3>
+                                    </td>
+                                    <td class="text-center">
+                                        <h3 id="VN-02">
+                                        </h3>
+                                    </td>
+                                    <td class="text-center text-success1 bor-none">
+                                        <h3 id="VN-04">
+                                        </h3>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="bol-none" style="width: 25%;">
+                                        Trung Quốc
+                                    </td>
+                                    <td class="text-center text-danger2">
+                                        <h3 id="TQ-01">
+                                        </h3>
+                                    </td>
+                                    <td class="text-center">
+                                        <h3 id="TQ-02">
+                                        </h3>
+                                    </td>
+                                    <td class="text-center text-success1 bor-none">
+                                        <h3 id="TQ-04">
+                                        </h3>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="bol-none">
+                                        Thế giới
+                                    </td>
+                                    <td class="text-center text-danger2">
+                                        <h3 id="QT-01">
+                                        </h3>
+                                    </td>
+                                    <td class="text-center">
+                                        <h3 id="QT-02">
+                                        </h3>
+                                    </td>
+                                    <td class="text-center text-success1 bor-none">
+                                        <h3 id="QT-04">
+                                        </h3>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth" id="tableResultVn" style="display: none;">
+                            <thead>
+                                <tr class="">
+                                    <th class="bol-none">Quốc gia
+                                    </th>
+                                    <th class="text-center">
+                                        Số ca nhiễm
+                                    </th>
+                                    <th class="text-center">
+                                        Nguy kịch
+                                    </th>
+                                    <th class="text-center bor-none">
+                                        Chết
+                                    </th>
+                                    <th class="text-center bor-none">
+                                        Hồi phục
+                                    </th>
+                                    <th class="text-center bor-none">
+                                        Ca nhiễm mới hôm nay
+                                    </th>
+                                    <th class="text-center bor-none">
+                                        Số ca chết hôm nay
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="bol-none" style="width: 25%;">
+                                        Việt nam
+                                    </td>
+                                    <td class="text-center text-danger2">
+                                        <h3 id="VNE-01">
+                                        </h3>
+                                    </td>
+                                    <td class="text-center">
+                                        <h3 id="VNE-02">
+                                        </h3>
+                                    </td>
+                                    <td class="text-center">
+                                        <h3 id="VNE-03">
+                                        </h3>
+                                    </td>
+                                    <td class="text-center text-success1 bor-none">
+                                        <h3 id="VNE-04">
+                                        </h3>
+                                    </td>
+                                    <td class="text-center">
+                                        <h3 id="VNE-05">
+                                        </h3>
+                                    </td>
+                                    <td class="text-center">
+                                        <h3 id="VNE-06">
+                                        </h3>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="bol-none" style="width: 25%;">
+                                        Trung Quốc
+                                    </td>
+                                    <td class="text-center text-danger2">
+                                        <h3 id="TQE-01">
+                                        </h3>
+                                    </td>
+                                    <td class="text-center">
+                                        <h3 id="TQE-02">
+                                        </h3>
+                                    </td>
+                                    <td class="text-center">
+                                        <h3 id="TQE-03">
+                                        </h3>
+                                    </td>
+                                    <td class="text-center text-success1 bor-none">
+                                        <h3 id="TQE-04">
+                                        </h3>
+                                    </td>
+                                    <td class="text-center">
+                                        <h3 id="TQE-05">
+                                        </h3>
+                                    </td>
+                                    <td class="text-center">
+                                        <h3 id="TQE-06">
+                                        </h3>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="bol-none">
+                                        Thế giới
+                                    </td>
+                                    <td class="text-center text-danger2">
+                                        <h3 id="QTE-01">
+                                        </h3>
+                                    </td>
+                                    <td class="text-center">
+                                        <h3 id="QTE-02">
+                                        </h3>
+                                    </td>
+                                    <td class="text-center">
+                                        <h3 id="QTE-03">
+                                        </h3>
+                                    </td>
+                                    <td class="text-center text-success1 bor-none">
+                                        <h3 id="QTE-04">
+                                        </h3>
+                                    </td>
+                                    <td class="text-center">
+                                        <h3 id="QTE-05">
+                                        </h3>
+                                    </td>
+                                    <td class="text-center">
+                                        <h3 id="QTE-06">
+                                        </h3>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </input>
+                </div>
+            </article>
+        </div>
+    </body>
+</html>
